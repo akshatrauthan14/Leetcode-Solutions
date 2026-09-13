@@ -1,15 +1,36 @@
-//approach 1
-class Solution {
-    public int arrangeCoins(long n) {
+public class Q441 {
+    public static void main(String[] args) {
+        System.out.println(7/2);
+    }
+    static long arrange(long n){
         if (n<=1) {
-            return (int)n;
+            return n;
         }
         for (long i = 1; i <= n; i++) {
-            long sum = (long)i*(i+1)/2;
+            long sum = i*(i+1)/2;
             if (sum>n) {
-                return (int)i-1;
+                return i-1;
             }
         }
         return -1;
+    }
+//approach 2
+    static int arrangeBS(int n){
+        long s = 1;
+        long e = n;
+        while (s<=e) {
+            long m = s+(e-s)/2;
+            long coins = m*(m+1)/2;
+            if (coins == n) {
+                return (int)m;
+            }
+            if (coins>n) {
+                e=m-1;
+            }
+            else{
+                s=m+1;
+            }
+        }
+        return (int)s;
     }
 }
