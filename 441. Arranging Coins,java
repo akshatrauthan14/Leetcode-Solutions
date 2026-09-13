@@ -1,0 +1,15 @@
+//approach 1
+class Solution {
+    public int arrangeCoins(long n) {
+        if (n<=1) {
+            return (int)n;
+        }
+        for (long i = 1; i <= n; i++) {
+            long sum = (long)i*(i+1)/2;
+            if (sum>n) {
+                return (int)i-1;
+            }
+        }
+        return -1;
+    }
+}
