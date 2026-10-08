@@ -22,3 +22,26 @@ class Solution {
         return ans.toString();
     }
 }
+//app 2 - same but without stack
+class Solution {
+    public String removeOuterParentheses(String s) {
+        //Stack<Character> stack = new Stack<>();
+        StringBuilder ans = new StringBuilder();
+        int c = 0;
+        for(char ch: s.toCharArray()){
+            if(ch == '('){
+                //for every outer bracket, count is always 0
+                if(c>0){
+                    ans.append(ch);
+                }
+                c++;
+            } else{
+                c--;
+                if(c>0){
+                    ans.append(ch);
+                }
+            }
+        }
+        return ans.toString();
+    }
+}
